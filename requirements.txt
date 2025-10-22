@@ -1,1 +1,3 @@
 # Dependencias Python
+tf-keras
+fastapi
