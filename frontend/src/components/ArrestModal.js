@@ -396,7 +396,7 @@ export default function ArrestModal({ person, onClose, onSave }) {
                   ...styles.select, ...(!selectedTurno ? styles.selectDisabled : {})
                 }}
                 required
-                disabled={!formData.turno}
+                disabled={!selectedTurno}
               >
                 <option value="">Seleccione un oficial</option>
                 {oficialesFiltrados.map((o) => (
