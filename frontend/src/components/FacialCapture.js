@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { EMBEDDING_API_URL } from '../config'; // Importamos la URL de embeddings
 
 export default function FacialCapture({ photoFile, setPhotoFile, onMessage }) {
   const videoRef = useRef(null);
@@ -75,7 +76,7 @@ export default function FacialCapture({ photoFile, setPhotoFile, onMessage }) {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await fetch('http://localhost:8001/generate_embedding/', {
+        const response = await fetch(`${EMBEDDING_API_URL}/generate_embedding/`, {
           method: 'POST',
           body: formData
         });
