@@ -539,7 +539,7 @@ const getRelativeCoords = (e, canvas) => {
         </div>
 
         {/* ===== PDF DE PRIVACIDAD ===== */}
-        <div style={styles.pdfContainer}>
+        {/*<div style={styles.pdfContainer}>
           <div style={styles.pdfHeader}>
             <h2 style={styles.pdfTitle}>Acuerdo de Privacidad y Confidencialidad</h2>
             <p style={styles.pdfSubtitle}>Por favor, revisa el documento antes de continuar con la firma.</p>
@@ -605,10 +605,11 @@ const getRelativeCoords = (e, canvas) => {
               Acepto los términos de privacidad y confidencialidad
             </label>
           </div>
-        </div>
+        </div> */}
 
+        {/* ===== SECCIÓN DE FIRMA DIGITAL ===== */}
         {/* ===== FIRMA DIGITAL ===== */}
-        <div>
+        {/*<div>
           <div style={styles.sectionDivider}>
             <span style={styles.sectionLabel}>Firma Digital</span>
           </div>
@@ -666,7 +667,7 @@ const getRelativeCoords = (e, canvas) => {
               <img src={firma} alt="Firma digital" style={styles.signatureImg} />
             </div>
           )}
-        </div>
+        </div> */}
         {/* ===== INFORMACIÓN DEL ARRESTO ===== */}
         <div>
           <div style={styles.sectionDivider}>

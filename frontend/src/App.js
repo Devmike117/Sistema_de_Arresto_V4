@@ -107,17 +107,18 @@ let sections = [
     content: (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '100%' }}>
         {/* Contenedor de secciones izquierda/derecha */}
+        {/* comentar la seccion de huella dactilar, no se cuenta con el dispositivo */}
         <div
           style={{
             display: 'flex',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
             alignItems: 'flex-start',
             width: '100%',
             gap: '2rem',
           }}
         >
           {/* Izquierda: Facial */}
-          <div style={{ ...styles.biometricContainer, flex: 1 }}>
+          <div style={{ ...styles.biometricContainer, flex: 1, maxWidth: '600px' }}>
             <FacialCapture
               photoFile={photoFile}
               setPhotoFile={setPhotoFile}
@@ -125,14 +126,14 @@ let sections = [
             />
           </div>
 
-          {/* Derecha: Huella */}
-          <div style={{ ...styles.biometricContainer, flex: 1 }}>
+          {/* Derecha: Huella - COMENTADO: No se cuenta con el dispositivo */}
+          {/* <div style={{ ...styles.biometricContainer, flex: 1 }}>
             <FingerprintScan
               fingerprintFile={fingerprintFile}
               setFingerprintFile={setFingerprintFile}
               onMessage={setMessage}
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Botón centrado */}
