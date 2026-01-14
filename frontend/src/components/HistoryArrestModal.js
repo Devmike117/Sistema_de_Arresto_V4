@@ -6,7 +6,8 @@ export default function HistoryArrestModal({
   onClose, 
   arrests = [], 
   person,
-  onMessage // Sin valor por defecto
+  onMessage, // Sin valor por defecto
+  onArrestUpdate // Callback para actualizar en el componente padre
 }) {
   const [editingSentencia, setEditingSentencia] = useState({});
   const [sentenciaValues, setSentenciaValues] = useState({});
@@ -51,13 +52,17 @@ export default function HistoryArrestModal({
       
       if (res.ok) {
         // Actualizar el estado local inmediatamente
-        setLocalArrests(prev => 
-          prev.map(arrest => 
-            arrest.id === arrestId 
-              ? { ...arrest, sentencia: sentenciaValues[arrestId] || "" }
-              : arrest
-          )
+        const updatedArrests = localArrests.map(arrest => 
+          arrest.id === arrestId 
+            ? { ...arrest, sentencia: sentenciaValues[arrestId] || "" }
+            : arrest
         );
+        setLocalArrests(updatedArrests);
+
+        // Notificar al componente padre para sincronizar
+        if (onArrestUpdate) {
+          onArrestUpdate(arrestId, sentenciaValues[arrestId] || "");
+        }
 
         // Cerrar modo edición
         setEditingSentencia({ ...editingSentencia, [arrestId]: false });
@@ -272,7 +277,7 @@ export default function HistoryArrestModal({
                                 onClick={() => handleEditSentencia(a.id)}
                                 style={{
                                   padding: '6px 12px',
-                                  background: 'linear-gradient(135deg, #4facfe 0%, #2ea3a9ff 100%)',
+                                  background: 'linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)',
                                   color: 'white',
                                   border: 'none',
                                   borderRadius: '8px',
@@ -283,7 +288,7 @@ export default function HistoryArrestModal({
                                   alignItems: 'center',
                                   gap: '4px',
                                   transition: 'all 0.2s ease',
-                                  boxShadow: '0 2px 8px rgba(79, 172, 254, 0.3)',
+                                  boxShadow: '0 2px 8px rgba(38, 82, 144, 0.4)',
                                 }}
                                 title="Editar sentencia"
                                 onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
@@ -465,13 +470,13 @@ const styles = {
   },
 
   arrestNumber: {
-    background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    background: "linear-gradient(135deg, #8c8787 0%, #908e8e 100%)",
     color: "#fff",
     padding: "0.25rem 0.75rem",
     borderRadius: "20px",
     fontSize: "0.85rem",
     fontWeight: "700",
-    boxShadow: "0 2px 8px rgba(245, 87, 108, 0.3)"
+    boxShadow: "0 2px 8px rgba(72, 72, 72, 0.3)"
   },
 
   arrestDate: {
@@ -583,7 +588,7 @@ const styles = {
   },
 
   closeFooterButton: {
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #ad3b74 0%, #82107d 100%)",
     color: "#fff",
     border: "none",
     borderRadius: "10px",
@@ -591,7 +596,7 @@ const styles = {
     fontSize: "0.95rem",
     fontWeight: "600",
     cursor: "pointer",
-    boxShadow: "0 4px 15px rgba(102, 126, 234, 0.4)",
+    boxShadow: "0 4px 15px rgba(69, 69, 69, 0.4)",
     transition: "all 0.3s ease",
     outline: "none"
   }

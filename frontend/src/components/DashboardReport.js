@@ -132,7 +132,7 @@ const styles = {
   reportHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' },
   mainTitle: { fontSize: '2rem', margin: 0 },
   backButton: { ...baseButton, background: 'rgba(255, 255, 255, 0.1)', color: '#fff' },
-  printButton: { ...baseButton, background: 'linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%)', color: '#fff' },
+  printButton: { ...baseButton, background: 'linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)', color: '#fff' },
   
   printableArea: { background: 'rgba(10, 25, 41, 0.7)', color: '#fff', borderRadius: '8px', padding: '2rem', fontFamily: 'Arial, sans-serif', border: '1px solid rgba(255, 255, 255, 0.2)', position: 'relative', overflow: 'hidden' },
   

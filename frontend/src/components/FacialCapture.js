@@ -380,18 +380,19 @@ const styles = {
     display: 'block',
     objectFit: 'cover'     
   },
+  // Overlay de checkmark en la foto capturada
   photoOverlay: {
     position: 'absolute',
     top: '1rem',
     right: '1rem',
-    background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    background: 'linear-gradient(135deg, #1f6511 0%, #257415 100%)',
     borderRadius: '50%',
     width: '50px',
     height: '50px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    boxShadow: '0 4px 15px rgba(79, 172, 254, 0.5)'
+    boxShadow: '0 4px 15px rgba(22, 66, 34, 0.5)'
   },
 
   checkmark: {
@@ -409,7 +410,7 @@ const styles = {
   },
 
   captureButton: {
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    background: 'linear-gradient(135deg, #ad3b74 0%, #82107d 100%)',
     color: '#fff',
     border: 'none',
     borderRadius: '12px',
@@ -420,7 +421,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-    boxShadow: '0 8px 20px rgba(102, 126, 234, 0.4)',
+    boxShadow: '0 8px 20px rgba(69, 69, 69, 0.4)',
     transition: 'all 0.3s ease',
     outline: 'none'
   },
@@ -441,9 +442,9 @@ const styles = {
     transition: 'all 0.3s ease',
     outline: 'none'
   },
-
+  // Estilos para el botón de retomar foto
   retakeButton: {
-    background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    background: 'linear-gradient(135deg, #ad3b74 0%, #82107d 100%)',
     color: '#fff',
     border: 'none',
     borderRadius: '12px',
@@ -454,7 +455,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-    boxShadow: '0 8px 20px rgba(245, 87, 108, 0.4)',
+    boxShadow: '0 8px 20px rgba(69, 69, 69, 0.4)',
     transition: 'all 0.3s ease',
     outline: 'none'
   },
@@ -478,6 +479,6 @@ const styles = {
 
   successIcon: {
     fontSize: '1.2rem',
-    color: '#4fd466'
+    color: '#257415'
   }
 };

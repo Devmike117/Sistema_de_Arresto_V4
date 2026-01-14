@@ -85,6 +85,37 @@ const SearchPeople = () => {
     }
   };
 
+  const handleArrestUpdate = (arrestId, newSentencia) => {
+    // Actualizar la sentencia en los resultados de búsqueda
+    setResults(prevResults => 
+      prevResults.map(person => {
+        if (person.id === selectedPerson?.id && person.arrests) {
+          return {
+            ...person,
+            arrests: person.arrests.map(arrest => 
+              arrest.id === arrestId 
+                ? { ...arrest, sentencia: newSentencia }
+                : arrest
+            )
+          };
+        }
+        return person;
+      })
+    );
+
+    // Actualizar también selectedPerson para que el modal tenga los datos actualizados
+    if (selectedPerson && selectedPerson.arrests) {
+      setSelectedPerson({
+        ...selectedPerson,
+        arrests: selectedPerson.arrests.map(arrest => 
+          arrest.id === arrestId 
+            ? { ...arrest, sentencia: newSentencia }
+            : arrest
+        )
+      });
+    }
+  };
+
   return (
     <div style={styles.container}>
       {/* Header de búsqueda */}
@@ -300,6 +331,7 @@ const SearchPeople = () => {
           onClose={handleCloseHistoryModal}
           arrests={selectedPerson.arrests || []}
           person={selectedPerson}
+          onArrestUpdate={handleArrestUpdate}
         />
       )}
     </div>
@@ -402,7 +434,7 @@ const styles = {
   },
 
   searchButton: {
-    background: 'linear-gradient(135deg, #4facfe 0%, #2ea3a9ff 100%)',
+    background: 'linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)',
     color: '#fff',
     border: 'none',
     borderRadius: '10px',
@@ -414,7 +446,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     gap: '0.5rem',
-    boxShadow: '0 4px 15px rgba(79, 172, 254, 0.4)',
+    boxShadow: '0 4px 15px rgba(38, 82, 144, 0.4)',
     transition: 'all 0.3s ease',
     outline: 'none',
     whiteSpace: 'nowrap'
@@ -575,9 +607,9 @@ const styles = {
     gap: '1rem',
     flexWrap: 'wrap'
   },
-
+  // Estilos para el botón de nuevo arresto
   arrestButton: {
-    background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    background: 'linear-gradient(135deg, #ad3b74 0%, #82107d 100%)',
     color: '#fff',
     border: 'none',
     borderRadius: '10px',
@@ -588,13 +620,13 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-    boxShadow: '0 4px 15px rgba(245, 87, 108, 0.4)',
+    boxShadow: '0 4px 15px rgba(69, 69, 69, 0.4)',
     transition: 'all 0.3s ease',
     outline: 'none'
   },
 
   historyButton: {
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    background: 'linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)',
     color: '#fff',
     border: 'none',
     borderRadius: '10px',
@@ -605,7 +637,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-    boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
+    boxShadow: '0 4px 15px rgba(38, 82, 144, 0.4)',
     transition: 'all 0.3s ease',
     outline: 'none'
   },

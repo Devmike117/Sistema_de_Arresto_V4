@@ -253,7 +253,7 @@ const styles = {
     transition: "all 0.2s ease",
   },
   saveButton: {
-    background: "linear-gradient(135deg, #4facfe 0%, #2ea3a9ff 100%)",
+    background: "linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)",
     color: "#fff",
     border: "none",
     borderRadius: "10px",

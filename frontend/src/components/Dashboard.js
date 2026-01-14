@@ -1008,7 +1008,7 @@ const styles = {
   },
   reportSearchButton: {
     padding: '0.75rem',
-    background: 'linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%)',
+    background: 'linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)',
     border: 'none',
     borderRadius: '8px',
     color: '#fff',

@@ -484,13 +484,13 @@ const styles = {
   overlay: {
     position: "fixed",
     inset: 0,
-    background: "rgba(0, 0, 0, 0.7)",
-    backdropFilter: "blur(5px)",
+    background: "rgba(0, 0, 0, 0.75)",
+    backdropFilter: "blur(6px)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     zIndex: 1000,
-    padding: "1rem"
+    padding: "1.5rem"
   },
 
   modal: {
@@ -498,9 +498,10 @@ const styles = {
     backdropFilter: "blur(20px)",
     borderRadius: "20px",
     width: "100%",
-    maxWidth: "600px",
-    maxHeight: "90vh",
-    overflowY: "auto",
+    height: "88vh",
+    maxWidth: "1100px",
+    display: "flex",
+    flexDirection: "column",
     border: "1px solid rgba(255, 255, 255, 0.2)",
     boxShadow: "0 20px 60px rgba(0, 0, 0, 0.5)",
     fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
@@ -510,8 +511,9 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    padding: "1.5rem",
-    borderBottom: "1px solid rgba(255, 255, 255, 0.1)"
+    padding: "1.5rem 2rem",
+    borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
+    flexShrink: 0
   },
 
   headerContent: {
@@ -522,49 +524,49 @@ const styles = {
 
   iconContainer: {
     background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-    padding: "0.75rem",
-    borderRadius: "12px",
+    padding: "0.8rem",
+    borderRadius: "14px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    boxShadow: "0 4px 15px rgba(245, 87, 108, 0.3)"
+    boxShadow: "0 6px 20px rgba(245, 87, 108, 0.35)"
   },
 
   icon: {
-    fontSize: "1.8rem"
+    fontSize: "2rem"
   },
 
   title: {
-    fontSize: "1.5rem",
+    fontSize: "1.6rem",
     fontWeight: "700",
     color: "#fff",
     margin: 0,
-    textShadow: "0 2px 4px rgba(0, 0, 0, 0.2)"
+    textShadow: "0 2px 6px rgba(0, 0, 0, 0.25)"
   },
 
   subtitle: {
-    fontSize: "0.95rem",
+    fontSize: "1rem",
     color: "rgba(255, 255, 255, 0.8)",
-    margin: "0.25rem 0 0 0",
+    margin: "0.4rem 0 0 0",
     display: "flex",
     alignItems: "center",
     gap: "0.5rem"
   },
 
   personIcon: {
-    fontSize: "1.1rem"
+    fontSize: "1.15rem"
   },
 
   closeButton: {
-    background: "rgba(255, 255, 255, 0.1)",
-    border: "1px solid rgba(255, 255, 255, 0.2)",
-    borderRadius: "8px",
-    width: "35px",
-    height: "35px",
+    background: "rgba(255, 255, 255, 0.12)",
+    border: "1px solid rgba(255, 255, 255, 0.22)",
+    borderRadius: "10px",
+    width: "42px",
+    height: "42px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "1rem",
+    fontSize: "1.1rem",
     cursor: "pointer",
     color: "#fff",
     transition: "all 0.2s ease",
@@ -572,10 +574,12 @@ const styles = {
   },
 
   form: {
-    padding: "1.5rem",
+    padding: "2rem",
     display: "flex",
     flexDirection: "column",
-    gap: "1.25rem"
+    gap: "1.5rem",
+    overflowY: "auto",
+    flex: 1
   },
 
   field: {
@@ -587,22 +591,22 @@ const styles = {
   row: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
-    gap: "1rem"
+    gap: "1.5rem"
   },
 
   label: {
-    fontSize: "0.9rem",
+    fontSize: "0.95rem",
     fontWeight: "600",
     color: "#fff",
-    textShadow: "0 1px 2px rgba(0, 0, 0, 0.2)"
+    textShadow: "0 1px 2px rgba(0, 0, 0, 0.25)"
   },
 
   input: {
-    padding: "0.75rem 1rem",
-    fontSize: "0.95rem",
-    border: "2px solid rgba(255, 255, 255, 0.2)",
-    borderRadius: "10px",
-    background: "rgba(255, 255, 255, 0.9)",
+    padding: "0.85rem 1.1rem",
+    fontSize: "0.96rem",
+    border: "2px solid rgba(255, 255, 255, 0.22)",
+    borderRadius: "11px",
+    background: "rgba(255, 255, 255, 0.93)",
     color: "#333",
     outline: "none",
     transition: "all 0.2s ease",
@@ -610,11 +614,11 @@ const styles = {
   },
 
   select: {
-    padding: "0.75rem 1rem",
-    fontSize: "0.95rem",
-    border: "2px solid rgba(255, 255, 255, 0.2)",
-    borderRadius: "10px",
-    background: "rgba(255, 255, 255, 0.9)",
+    padding: "0.85rem 1.1rem",
+    fontSize: "0.96rem",
+    border: "2px solid rgba(255, 255, 255, 0.22)",
+    borderRadius: "11px",
+    background: "rgba(255, 255, 255, 0.93)",
     color: "#333",
     outline: "none",
     cursor: "pointer",
@@ -628,33 +632,35 @@ const styles = {
   },
 
   textarea: {
-    padding: "0.75rem 1rem",
-    fontSize: "0.95rem",
-    border: "2px solid rgba(255, 255, 255, 0.2)",
-    borderRadius: "10px",
-    background: "rgba(255, 255, 255, 0.9)",
+    padding: "0.85rem 1.1rem",
+    fontSize: "0.96rem",
+    border: "2px solid rgba(255, 255, 255, 0.22)",
+    borderRadius: "11px",
+    background: "rgba(255, 255, 255, 0.93)",
     color: "#333",
     outline: "none",
     resize: "vertical",
-    minHeight: "80px",
+    minHeight: "100px",
     transition: "all 0.2s ease",
     fontFamily: "inherit"
   },
 
   buttonGroup: {
     display: "flex",
-    gap: "1rem",
+    gap: "1.2rem",
     marginTop: "0.5rem",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
+    paddingTop: "1.2rem",
+    borderTop: "1px solid rgba(255, 255, 255, 0.12)"
   },
 
   cancelButton: {
-    background: "rgba(255, 255, 255, 0.1)",
+    background: "rgba(255, 255, 255, 0.12)",
     color: "#fff",
-    border: "2px solid rgba(255, 255, 255, 0.2)",
-    borderRadius: "10px",
-    padding: "0.75rem 1.5rem",
-    fontSize: "0.95rem",
+    border: "2px solid rgba(255, 255, 255, 0.22)",
+    borderRadius: "11px",
+    padding: "0.85rem 1.75rem",
+    fontSize: "0.96rem",
     fontWeight: "600",
     cursor: "pointer",
     backdropFilter: "blur(10px)",
@@ -669,9 +675,9 @@ const styles = {
     background: 'rgba(79, 172, 254, 0.2)',
     color: '#fff',
     border: '2px dashed rgba(79, 172, 254, 0.5)',
-    borderRadius: '10px',
-    padding: '0.75rem 1.5rem',
-    fontSize: '0.95rem',
+    borderRadius: '11px',
+    padding: '0.85rem 1.75rem',
+    fontSize: '0.96rem',
     fontWeight: '600',
     cursor: 'pointer',
     display: 'flex',
@@ -686,27 +692,26 @@ const styles = {
     background: 'rgba(245, 87, 108, 0.2)',
     color: '#f5576c',
     border: 'none',
-    borderRadius: '10px',
-    width: '45px',
-    height: '45px',
+    borderRadius: '11px',
+    width: '46px',
+    height: '46px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     cursor: "pointer",
-    alignItems: "center",
-    gap: "0.5rem"
+    transition: "all 0.2s ease"
   },
 
   saveButton: {
-    background: "linear-gradient(135deg, #4facfe 0%, #2ea3a9ff 100%)",
+    background: "linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)",
     color: "#fff",
     border: "none",
-    borderRadius: "10px",
-    padding: "0.75rem 1.5rem",
-    fontSize: "0.95rem",
+    borderRadius: "11px",
+    padding: "0.85rem 2rem",
+    fontSize: "0.96rem",
     fontWeight: "600",
     cursor: "pointer",
-    boxShadow: "0 4px 15px rgba(79, 172, 254, 0.4)",
+    boxShadow: "0 6px 20px rgba(38, 82, 144, 0.45)",
     transition: "all 0.3s ease",
     outline: "none",
     display: "flex",

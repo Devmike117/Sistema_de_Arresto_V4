@@ -386,7 +386,7 @@ export default function FacialSearch({ onMessage }) {
                                       onClick={() => handleEditSentencia(a.id)}
                                       style={{
                                         padding: '6px 12px',
-                                        background: 'linear-gradient(135deg, #4facfe 0%, #2ea3a9ff 100%)',
+                                        background: 'linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)',
                                         color: 'white',
                                         border: 'none',
                                         borderRadius: '8px',
@@ -397,7 +397,7 @@ export default function FacialSearch({ onMessage }) {
                                         alignItems: 'center',
                                         gap: '4px',
                                         transition: 'all 0.2s ease',
-                                        boxShadow: '0 2px 8px rgba(79, 172, 254, 0.3)',
+                                        boxShadow: '0 2px 8px rgba(38, 82, 144, 0.4)',
                                       }}
                                       title="Editar sentencia"
                                     >
@@ -498,7 +498,7 @@ const styles = {
   },
 
   searchButton: {
-    background: "linear-gradient(135deg, #4facfe 0%, #2ea3a9ff 100%)",
+    background: "linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)",
     color: "#fff",
     border: "none",
     borderRadius: "12px",
@@ -509,7 +509,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: "0.75rem",
-    boxShadow: "0 8px 20px rgba(79, 172, 254, 0.4)",
+    boxShadow: "0 8px 20px rgba(38, 82, 144, 0.4)",
     transition: "all 0.3s ease",
     outline: "none",
     width: "100%",
@@ -571,7 +571,7 @@ const styles = {
   },
 //icno circular con gradiente
   resultIconContainer: {
-    background: "linear-gradient(135deg, #4ffe69ff 0%, #10dc58ff 100%)",
+    background: "linear-gradient(135deg, #1f6511 0%, #257415 100%)",
     padding: "0.75rem",
     borderRadius: "90px",
     overflow: "hidden",
@@ -580,7 +580,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    boxShadow: "0 4px 15px rgba(79, 172, 254, 0.3)"
+    boxShadow: "0 4px 15px rgba(22, 66, 34, 0.5)"
   },
 
   resultIcon: {
@@ -754,14 +754,14 @@ const styles = {
   },
 
   arrestNumber: {
-    background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    background: "linear-gradient(135deg, #8c8787 0%, #908e8e 100%)",
     color: "#fff",
     padding: "0.25rem 0.75rem",
     borderRadius: "20px",
     fontSize: "0.85rem",
     fontWeight: "700",
     flexShrink: 0,
-    boxShadow: "0 2px 8px rgba(245, 87, 108, 0.3)"
+    boxShadow: "0 2px 8px rgba(72, 72, 72, 0.3)"
   },
 
   arrestContent: {
@@ -822,7 +822,7 @@ const styles = {
   },
 
   arrestButton: {
-    background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    background: "linear-gradient(135deg, #ad3b74 0%, #82107d 100%)",
     color: "#fff",
     border: "none",
     borderRadius: "10px",
@@ -833,7 +833,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     gap: "0.5rem",
-    boxShadow: "0 4px 15px rgba(245, 87, 108, 0.4)",
+    boxShadow: "0 4px 15px rgba(69, 69, 69, 0.4)",
     transition: "all 0.3s ease",
     outline: "none"
   },

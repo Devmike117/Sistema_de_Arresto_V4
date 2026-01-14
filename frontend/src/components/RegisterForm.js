@@ -853,7 +853,7 @@ const getRelativeCoords = (e, canvas) => {
 
 const styles = {
   baseButton: {
-    background: 'linear-gradient(135deg, #4facfe 0%, #2ea3a9ff 100%)',
+    background: 'linear-gradient(135deg, #3a7bd5 0%, #3c4ae3 100%)',
     color: '#fff',
     border: 'none',
     borderRadius: '10px',
@@ -863,14 +863,14 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-    boxShadow: '0 4px 15px rgba(79, 172, 254, 0.4)',
+    boxShadow: '0 4px 15px rgba(38, 82, 144, 0.4)',
     transition: 'all 0.3s ease',
     outline: 'none',
     userSelect: 'none',
   },
 
   secondaryButton: {
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    background: 'linear-gradient(135deg, #ad3b74 0%, #82107d 100%)',
     color: '#fff',
     border: 'none',
     borderRadius: '10px',
@@ -881,7 +881,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-    boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
+    boxShadow: '0 4px 15px rgba(69, 69, 69, 0.4)',
     transition: 'all 0.3s ease',
     outline: 'none',
     userSelect: 'none',
