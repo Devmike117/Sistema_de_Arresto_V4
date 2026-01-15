@@ -142,8 +142,6 @@ export default function RegisterForm({ onNext, onMessage }) {
   const [isDrawing, setIsDrawing] = useState(false);
   const [firma, setFirma] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
-  const [showPDF, setShowPDF] = useState(true);
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
 
   const [form, setForm] = useState({
     first_name: '',
@@ -313,16 +311,6 @@ const getRelativeCoords = (e, canvas) => {
       return;
     }
 
-    if (!acceptedTerms) {
-      if (onMessage) onMessage({ type: 'error', text: 'Debes aceptar los términos de privacidad.' });
-      return;
-    }
-
-    if (!firma) {
-      if (onMessage) onMessage({ type: 'error', text: 'Por favor, firma antes de continuar.' });
-      return;
-    }
-
     const formData = { 
       ...form, 
       falta_administrativa, // Enviamos la cadena combinada
@@ -354,7 +342,6 @@ const getRelativeCoords = (e, canvas) => {
       sentencia: ''
     });
     limpiarFirma();
-    setAcceptedTerms(false);
     if (onMessage) onMessage(null);
   }
 
@@ -538,78 +525,8 @@ const getRelativeCoords = (e, canvas) => {
           </div>
         </div>
 
-        {/* ===== PDF DE PRIVACIDAD ===== */}
-        <div style={styles.pdfContainer}>
-          <div style={styles.pdfHeader}>
-            <h2 style={styles.pdfTitle}>Acuerdo de Privacidad y Confidencialidad</h2>
-            <p style={styles.pdfSubtitle}>Por favor, revisa el documento antes de continuar con la firma.</p>
-          </div>
-
-          <div style={styles.pdfControls}>
-           <button
-            onClick={() => setShowPDF(!showPDF)}
-            style={{
-              ...styles.baseButton,
-              flex: '1',
-              minWidth: '150px',
-              justifyContent: 'center',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              transition: 'transform 0.2s ease',
-            }}
-            onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
-            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>
-              {showPDF ? 'close' : 'description'}
-            </span>
-            {showPDF ? 'Ocultar PDF' : 'Ver PDF'}
-          </button>
-
-            <a
-              href="/pdf/aviso_privacidad.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                ...styles.secondaryButton,
-                textDecoration: 'none',
-                justifyContent: 'center',
-                minWidth: '150px',
-              }}
-              onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
-              onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>download</span>
-              <span>Descargar PDF</span>
-            </a>
-          </div>
-
-          {showPDF && (
-            <iframe
-              src="/pdf/aviso_privacidad.pdf"
-              title="Acuerdo de Privacidad"
-              style={styles.pdfFrame}
-            />
-          )}
-
-          <div style={styles.acceptanceBox}>
-            <input
-              type="checkbox"
-              id="acceptPrivacy"
-              checked={acceptedTerms}
-              onChange={(e) => setAcceptedTerms(e.target.checked)}
-              style={styles.acceptanceCheckbox}
-            />
-            <label htmlFor="acceptPrivacy" style={styles.acceptanceLabel}>
-              Acepto los términos de privacidad y confidencialidad
-            </label>
-          </div>
-        </div> 
-
-        {/* ===== SECCIÓN DE FIRMA DIGITAL ===== */}
         {/* ===== FIRMA DIGITAL ===== */}
-        <div>
+        {/*<div>
           <div style={styles.sectionDivider}>
             <span style={styles.sectionLabel}>Firma Digital</span>
           </div>
@@ -667,7 +584,7 @@ const getRelativeCoords = (e, canvas) => {
               <img src={firma} alt="Firma digital" style={styles.signatureImg} />
             </div>
           )}
-        </div> 
+        </div> */}
         {/* ===== INFORMACIÓN DEL ARRESTO ===== */}
         <div>
           <div style={styles.sectionDivider}>
@@ -1027,66 +944,6 @@ const styles = {
     textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
     fontSize: '1.1rem',
     borderRadius: '8px',
-  },
-
-  pdfHeader: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.5rem',
-    marginBottom: '1rem',
-  },
-
-  pdfTitle: {
-    fontSize: '1.3rem',
-    fontWeight: '700',
-    color: '#fff',
-    textShadow: '0 1px 2px rgba(0, 0, 0, 0.2)',
-  },
-
-  pdfSubtitle: {
-    fontSize: '0.9rem',
-    color: 'rgba(255, 255, 255, 0.8)',
-  },
-
-  pdfControls: {
-    display: 'flex',
-    gap: '1rem',
-    marginBottom: '1rem',
-    flexWrap: 'wrap',
-  },
-
-  pdfFrame: {
-    width: '100%',
-    height: '700px',
-    borderRadius: '10px',
-    border: '2px solid rgba(255, 255, 255, 0.3)',
-    overflow: 'hidden',
-    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-  },
-
-  acceptanceBox: {
-    background: 'rgba(255, 255, 255, 0.05)',
-    border: '2px solid rgba(255, 255, 255, 0.2)',
-    borderRadius: '10px',
-    padding: '1rem',
-    marginTop: '1rem',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.75rem',
-  },
-
-  acceptanceCheckbox: {
-    width: '20px',
-    height: '20px',
-    cursor: 'pointer',
-    accentColor: '#4facfe',
-  },
-
-  acceptanceLabel: {
-    color: '#fff',
-    fontSize: '0.95rem',
-    cursor: 'pointer',
-    margin: 0,
   },
 
   canvasContainer: {

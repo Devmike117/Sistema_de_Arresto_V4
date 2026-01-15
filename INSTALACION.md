@@ -119,8 +119,8 @@ La base de datos se crea automáticamente, pero necesitas crear las tablas.
    - **Host:** localhost
    - **Port:** 5432
    - **Database:** arrest_registry
-   - **Username:** db_user_2024
-   - **Password:** SecurePass#2024!
+   - **Username:** db_user_2025
+   - **Password:** SecurePass#2025!
 5. Conecta al servidor
 6. Clic derecho en la base de datos `arrest_registry` → "Query Tool"
 7. Copia y ejecuta el script SQL que se encuentra en `estructura basede datos.txt`
@@ -129,7 +129,7 @@ La base de datos se crea automáticamente, pero necesitas crear las tablas.
 
 ```bash
 # Acceder al contenedor
-docker exec -it arrest_registry_db psql -U db_user_2024 -d arrest_registry
+docker exec -it arrest_registry_db psql -U db_user_2025 -d arrest_registry
 
 # Luego pega el contenido de "estructura basede datos.txt" o ejecuta:
 \i /ruta/al/archivo/estructura_basede_datos.sql
@@ -142,8 +142,8 @@ Si necesitas cambiar la configuración, crea un archivo `.env` en la carpeta `ba
 ```env
 DB_HOST=localhost
 DB_PORT=5432
-DB_USER=db_user_2024
-DB_PASSWORD=SecurePass#2024!
+DB_USER=db_user_2025
+DB_PASSWORD=SecurePass#2025!
 DB_NAME=arrest_registry
 PORT=3001
 ```
@@ -199,6 +199,36 @@ npm start
 ---
 
 ## 🔧 Solución de Problemas
+
+### ❌ Error: "El sistema no puede encontrar el archivo especificado" (Docker)
+
+**Error completo:**
+```
+error during connect: Get "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.51/...": 
+open //./pipe/dockerDesktopLinuxEngine: El sistema no puede encontrar el archivo especificado.
+```
+
+**Causa:** Docker Desktop no está corriendo o no está instalado correctamente.
+
+**Solución:**
+1. **Abre Docker Desktop** desde el menú Inicio de Windows
+2. **Espera 1-2 minutos** hasta que el ícono de Docker en la barra de tareas deje de parpadear
+3. El ícono debe verse estable (no parpadeando) antes de continuar
+4. **Verifica** que Docker esté corriendo:
+   ```bash
+   docker ps
+   ```
+   Debería mostrar una lista vacía o con contenedores, NO un error
+5. Ahora sí, ejecuta:
+   ```bash
+   docker-compose up -d
+   ```
+
+**Si Docker Desktop no arranca:**
+- Reinicia tu computadora
+- Reinstala Docker Desktop desde: https://www.docker.com/products/docker-desktop/
+- Durante la instalación, acepta todas las opciones recomendadas
+- Asegúrate de tener la virtualización habilitada en la BIOS
 
 ### ❌ Error: "node no se reconoce como comando"
 
@@ -281,9 +311,9 @@ Para acceder al sistema desde otros dispositivos (tablets, celulares, otras comp
 2. Busca en los logs el mensaje que dice: `Backend disponible en: http://192.168.X.X:3001`
 3. Usa esa IP para acceder desde otros dispositivos en la misma red
 
-Ejemplo: Si tu IP es `192.168.1.100`, accede desde:
-- Frontend: `http://192.168.1.100:3000`
-- Backend: `http://192.168.1.100:3001`
+Ejemplo: Si tu IP es `192.168.10.100`, accede desde:
+- Frontend: `http://192.168.10.100:3000`
+- Backend: `http://192.168.10.100:3001`
 
 ⚠️ **Importante:** Asegúrate de que el Firewall de Windows permita las conexiones en los puertos 3000 y 3001.
 
@@ -303,7 +333,7 @@ Sistema_de_Arresto_V3/
 │   ├── public/           # Archivos estáticos
 │   └── package.json      # Dependencias del frontend
 ├── docker-compose.yml    # Configuración de PostgreSQL
-├── iniciar.bat           # 🚀 Launcher del sistema
+├── iniciar.bat           # Launcher del sistema
 ├── start-backend.ps1     # Script de inicio del backend
 └── requirements.txt      # Dependencias de Python
 ```
@@ -316,8 +346,8 @@ Sistema_de_Arresto_V3/
 - **Host:** localhost
 - **Puerto:** 5432
 - **Base de datos:** arrest_registry
-- **Usuario:** db_user_2024
-- **Contraseña:** SecurePass#2024!
+- **Usuario:** db_user_2025
+- **Contraseña:** SecurePass#2025!
 
 ⚠️ **IMPORTANTE:** Estas son credenciales de EJEMPLO. Debes cambiarlas en el archivo `docker-compose.yml` antes de usar el sistema.
 

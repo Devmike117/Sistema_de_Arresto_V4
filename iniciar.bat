@@ -1,4 +1,5 @@
 @echo off
+setlocal enabledelayedexpansion
 chcp 65001 >nul
 color 0B
 title Sistema de Gestión de Arrestos
@@ -89,6 +90,44 @@ echo     ╚══════════════════════�
 echo.
 echo.
 echo          Por favor espere...
+echo.
+
+REM Verificar si Docker Desktop está corriendo
+echo          ▪ Verificando Docker Desktop...
+docker ps >nul 2>&1
+if errorlevel 1 (
+    echo          ℹ  Docker Desktop no está corriendo
+    echo          ▪ Iniciando Docker Desktop...
+    
+    REM Intentar abrir Docker Desktop
+    start "" "C:\Program Files\Docker\Docker\Docker Desktop.exe" >nul 2>&1
+    
+    REM Esperar a que Docker Desktop esté listo (máximo 60 segundos)
+    set /a CONTADOR=0
+    :WAIT_DOCKER
+    timeout /t 2 >nul
+    docker ps >nul 2>&1
+    if errorlevel 1 (
+        set /a CONTADOR+=1
+        if !CONTADOR! LSS 30 (
+            echo          ▪ Esperando a Docker Desktop... (!CONTADOR!/30^)
+            goto WAIT_DOCKER
+        ) else (
+            echo          ⚠️  Docker Desktop no respondió a tiempo
+            echo          ⚠️  Por favor inicie Docker Desktop manualmente
+            echo.
+            echo          Presione cualquier tecla para continuar...
+            pause >nul
+            goto MENU
+        )
+    )
+    echo          ✓ Docker Desktop listo
+    timeout /t 1 >nul
+) else (
+    echo          ✓ Docker Desktop corriendo
+    timeout /t 1 >nul
+)
+
 echo.
 echo          ▪ Preparando base de datos...
 docker-compose up -d >nul 2>&1
